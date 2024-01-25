@@ -7,6 +7,7 @@ import {
 import Home from "../home/Home";
 import SignIn from "../login/Sign-in";
 import SignUp from "../login/Sign-up";
+import About from "../about/About";
 
 function App() {
   return (
@@ -14,12 +15,10 @@ function App() {
       <div>
         <Routes>
 
-          <Route path="/" element={<Home/>}>
-          </Route>
-          <Route path="/signin" element={<SignIn/>}>
-          </Route>
-          <Route path="/signup" element={<SignUp/>}>
-          </Route>
+          <Route path="/" element={<Home/>}></Route>
+          <Route path="/signin" element={<SignIn/>}></Route>
+          <Route path="/signup" element={<SignUp/>}></Route>
+          <Route path="/about" element={<About/>}></Route>
           
         </Routes>
 
