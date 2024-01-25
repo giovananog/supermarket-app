@@ -79,6 +79,7 @@ export default function About() {
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
         <Header />
+        <br />
       <Container maxWidth="lg">
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
