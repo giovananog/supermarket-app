@@ -1,7 +1,9 @@
 import express from "express";
 import { getAllCategories, getAllProducts, getProductsFromCategory, getPurchasesFromUser } from "./request-functions.js";
- 
+import cors from 'cors'
+
 const app = express();
+app.use(cors())
 const port = 5000;
 
 
