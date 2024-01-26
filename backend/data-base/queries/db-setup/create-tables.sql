@@ -18,7 +18,6 @@ CREATE TABLE "purchases" (
   "user_id" integer,
   "total_amount" decimal,
   "purchase_date" timestamp,
-  "created_at" timestamp
 );
 
 CREATE TABLE "purchase_items" (
@@ -31,8 +30,7 @@ CREATE TABLE "purchase_items" (
 
 CREATE TABLE "categories" (
   "id" integer PRIMARY KEY,
-  "name" varchar,
-  "created_at" timestamp
+  "name" varchar
 );
 
 ALTER TABLE "purchases" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
