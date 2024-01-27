@@ -6,15 +6,25 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import LayersIcon from '@mui/icons-material/Layers';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import { Divider } from "@mui/material";
+import api from "../../api"
+
 
 
 
 export default function ListOptions () {
-    const [openCat, setOpenCat] = React.useState(false);
+  const [openCat, setOpenCat] = React.useState(false);
+  const [categories, setCategories] = React.useState([]);
+  
+    React.useEffect(() => {
+      api.get('categories').then(res => {
+        setCategories(res.data);
+      });
+    }, []);
 
     const showCategories = () => {
-        setOpenCat(!openCat);
+      setOpenCat(!openCat);
     };
+  
 
     return (
         <div>
@@ -35,26 +45,14 @@ export default function ListOptions () {
 
         <Divider sx={{ my: 1 }} />
         
-        {openCat &&  <React.Fragment>
-            <ListItemButton>
-              <ListItemIcon>
-                <AssignmentIcon />
-              </ListItemIcon>
-              <ListItemText primary="Current month" />
-            </ListItemButton>
-            <ListItemButton>
-              <ListItemIcon>
-                <AssignmentIcon />
-              </ListItemIcon>
-              <ListItemText primary="Last quarter" />
-            </ListItemButton>
-            <ListItemButton>
-              <ListItemIcon>
-                <AssignmentIcon />
-              </ListItemIcon>
-              <ListItemText primary="Year-end sale" />
-            </ListItemButton>
-          </React.Fragment>}
-          </div>
+        {openCat && categories.map(category => (
+        <ListItemButton key={category.id} >
+          <ListItemIcon>
+            <AssignmentIcon />
+          </ListItemIcon>
+          <ListItemText primary={category.name} />
+        </ListItemButton>
+      ))}
+        </div>
     );
 }

@@ -16,7 +16,6 @@ export default function ProductsHome() {
   const [products, setProducts] = React.useState([]);
 
   React.useEffect(() => {
-    console.log('Entrou no useEffect');
     api.get('products').then(res => {
       setProducts(res.data);
     });

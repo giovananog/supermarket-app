@@ -12,13 +12,22 @@ import CardActions from '@mui/material/CardActions';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { IconButton } from '@mui/material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import api from '../../api';
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
 export default function ShoWProducts() {
+
+  const [products, setProducts] = React.useState([]);
+
+  React.useEffect(() => {
+
+    api.get('products').then(res => { setProducts(res.data);});
+    
+  }, []);
+
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
@@ -34,35 +43,35 @@ export default function ShoWProducts() {
         <Container sx={{ py: 8 }} maxWidth="lg">
           {/* End hero unit */}
           <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={6} sm={6} md={3}>
-                <Card
-                  sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
-                >
-                  <CardMedia
-                    component="div"
-                    sx={{
-                      // 16:9
-                      pt: '56.25%',
-                    }}
-                    image="https://source.unsplash.com/random?wallpapers"
-                  />
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2" align='center'>
-                      Heading
-                    </Typography>
-                    <Typography align='center'>
-                      $12.45
-                    </Typography>
-                    <CardActions style={{backgroundColor: '#ccc'}}>
+            {products.map((product) => (
+            <Grid item key={product.id} xs={6} sm={6} md={3}>
+              <Card
+                sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+              >
+                <CardMedia
+                  component="div"
+                  sx={{
+                    pt: '56.25%',
+                  }}
+                  image={`https://source.unsplash.com/random?food,${product.name}`}
+                />
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography gutterBottom variant="h5" component="h2" align='center'>
+                    {product.name}
+                  </Typography>
+                  <Typography align='center'>
+                    ${product.price}
+                  </Typography>
+                  <CardActions style={{backgroundColor: '#ccc'}}>
                     <IconButton color="primary" aria-label="add to shopping cart" align='center' style={{width: '100%', height: '10px'}} size='large'>
                         <AddShoppingCartIcon />
                     </IconButton>
                     </CardActions>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
+                </CardContent>
+                
+              </Card>
+            </Grid>
+          ))}
           </Grid>
         </Container>
     </ThemeProvider>
