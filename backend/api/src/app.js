@@ -1,11 +1,12 @@
 import express from "express";
-import { getAllCategories, getAllProducts, getProductsFromCategory, getPurchasesFromUser, validateLogin } from "./request-functions.js";
+import { getAllCategories, getAllProducts, getProductsFromCategory, getPurchasesFromUser, registerUser, validateLogin } from "./request-functions.js";
 import cors from 'cors'
 import bodyParser from "body-parser";
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
 const port = 5000;
 
 
@@ -34,6 +35,8 @@ app.get('/purchases/:user', async (req, res) => {
     res.json(result.rows);
 });
 
+
+// post methods
 app.post('/validate', async (req, res) => {
     const email = req.body['email'];
     const password = req.body.password;
@@ -47,6 +50,23 @@ app.post('/validate', async (req, res) => {
     }
 });
 
+
+app.post('/register', async (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
+  const firstName = req.body.firstName;
+  const lastName = req.body.lastName;
+
+  console.log(firstName);
+
+  try {
+      await registerUser(email, password, firstName, lastName);
+      res.json({ success: true, message: 'User registered' });
+  } catch (error) {
+      console.error('Error during user registration:', error);
+      res.status(500).json({ success: false, message: 'Error during registration' });
+  }
+});
 
 // checks server port
 app.listen(port, () => {

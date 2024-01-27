@@ -10,6 +10,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import api from '../../api';
+import Home from '../home/Home';
 
 function Copyright(props) {
   return (
@@ -29,17 +31,48 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignUp() {
-  const handleSubmit = (event) => {
+
+  const [logged, setLogged] = React.useState(false);
+
+  const handleSubmit = async (event) => {
+    
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+
+    let email = data.get('email');
+    let password = data.get('password');
+    let firstName = data.get('firstName');
+    let lastName = data.get('firstName');
+
+    const formData = new URLSearchParams();
+    formData.append('email', email);
+    formData.append('password', password);
+    formData.append('firstName', firstName);
+    formData.append('lastName', lastName);
+
+
+    try {
+      const response = await api.post('/register', formData, {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      });
+  
+      if (response && response.data.success) {
+        setLogged(true);
+      } else {
+        setLogged(false);
+      }
+    } catch (error) {
+      console.error('Error during registration:', error);
+      setLogged(false);
+    }
+};
+
 
   return (
     <ThemeProvider theme={defaultTheme}>
+    {logged ? (<Home />) : (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -56,7 +89,7 @@ export default function SignUp() {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box component="form" method='post' noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -120,6 +153,7 @@ export default function SignUp() {
         </Box>
         <Copyright sx={{ mt: 5 }} />
       </Container>
+      )}
     </ThemeProvider>
   );
 }

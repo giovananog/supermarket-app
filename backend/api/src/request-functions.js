@@ -33,7 +33,7 @@ export async function getProductsFromCategory (category) {
 
 export async function getPurchasesFromUser (name) {
     try {
-      const result = await db.query("SELECT * FROM purchases WHERE user_id = (SELECT id FROM users WHERE firstName = $1); ", [name]);
+      const result = await db.query("SELECT * FROM purchases WHERE user_id = (SELECT id FROM users WHERE 'firstName' = $1); ", [name]);
       return result;
     } catch (error) {
       console.error('Error', error);
@@ -50,3 +50,17 @@ export async function validateLogin (email, password) {
     throw error; 
   }
 };
+
+
+export async function registerUser(email, password, firstName, lastName) {
+
+  try {
+    let id = (await db.query('SELECT * FROM users')).rowCount + 1;
+    console.log(id);
+    await db.query('INSERT INTO "users" ( "id", "firstName", "lastName", "email", "password") VALUES ($1, $2, $3, $4, $5)', [id, firstName, lastName, email, password]);
+    return true;
+  } catch (error) {
+      console.error('Error during user registration:', error);
+      throw error;
+  }
+}
