@@ -7,7 +7,7 @@ import MoreAbout from "./MoreAbout";
 import ProductsHome from "./ProductsHome";
 import { Link } from "@mui/material";
 
-function Home() {
+function Home(props) {
 
   const mainFeaturedPost = {
     title: 'Title of a longer featured blog post',
@@ -19,7 +19,7 @@ function Home() {
 
   return (
     <div className="home-div" style={{backgroundColor: '#8BC34A'}}>
-      <Header />
+      <Header islogged={props.islogged}/>
       <Container maxWidth="lg">
 
       <main>

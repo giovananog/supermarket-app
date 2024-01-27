@@ -16,7 +16,7 @@ import Link from '@mui/material/Link';
 
 
 const pages = ['Products', 'About', 'Suport', 'Work Here'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Purchases', 'Logout'];
 
 function Header(props) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -129,7 +129,7 @@ function Header(props) {
             ))}
           </Box>
 
-          {props.isLogged ? (
+          {props.islogged ? (
             <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

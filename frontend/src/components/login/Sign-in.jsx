@@ -65,7 +65,7 @@ export default function SignIn() {
   
   return (
     <ThemeProvider theme={defaultTheme}>
-    {logged ? (<Home />) : ( 
+    {logged ? (<Home islogged={logged} />) : ( 
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
         <Grid
