@@ -18,15 +18,15 @@ import api from '../../api';
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
-export default function ShoWProducts() {
+export default function ShoWProducts(props) {
 
   const [products, setProducts] = React.useState([]);
 
   React.useEffect(() => {
 
-    api.get('products').then(res => { setProducts(res.data);});
+    !props.cat ? api.get('products').then(res => { setProducts(res.data);}) : api.get('products/' + props.cat).then(res => { setProducts(res.data);})
     
-  }, []);
+  }, [props.cat]);
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -55,15 +55,15 @@ export default function ShoWProducts() {
                   }}
                   image={`https://source.unsplash.com/random?food,${product.name}`}
                 />
-                <CardContent sx={{ flexGrow: 1 }}>
+                <CardContent sx={{ flexGrow: 1, backgroundColor: '#8BC34A'}}>
                   <Typography gutterBottom variant="h5" component="h2" align='center'>
                     {product.name}
                   </Typography>
                   <Typography align='center'>
                     ${product.price}
                   </Typography>
-                  <CardActions style={{backgroundColor: '#ccc'}}>
-                    <IconButton color="primary" aria-label="add to shopping cart" align='center' style={{width: '100%', height: '10px'}} size='large'>
+                  <CardActions style={{backgroundColor: '#43ab43'}}>
+                    <IconButton color="#8BC34A" aria-label="add to shopping cart" align='center' style={{width: '100%', height: '10px'}} size='large'>
                         <AddShoppingCartIcon />
                     </IconButton>
                     </CardActions>

@@ -76,6 +76,7 @@ const defaultTheme = createTheme();
 
 export default function About() {
   return (
+    <div style={{backgroundColor: '#8BC34A'}}>
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
         <Header />
@@ -101,5 +102,6 @@ export default function About() {
       </Container>
       <Footer />
     </ThemeProvider>
+    </div>
   );
 }

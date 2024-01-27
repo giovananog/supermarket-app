@@ -90,7 +90,7 @@ export default function Email() {
             <Button
               type="submit"
               variant="contained"
-              sx={{ mt: 5, mb: 5 }}
+              sx={{ mt: 5, mb: 5, backgroundColor: '#43AB43'}}
             >
               Send
             </Button>

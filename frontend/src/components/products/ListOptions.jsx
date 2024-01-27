@@ -7,7 +7,7 @@ import LayersIcon from '@mui/icons-material/Layers';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import { Divider } from "@mui/material";
 import api from "../../api"
-
+import Link from '@mui/material/Link';
 
 
 
@@ -25,9 +25,8 @@ export default function ListOptions () {
       setOpenCat(!openCat);
     };
   
-
     return (
-        <div>
+        <div style={{backgroundColor: '#FBC02D'}}>
             <React.Fragment>
         <ListItemButton>
           <ListItemIcon>
@@ -46,12 +45,15 @@ export default function ListOptions () {
         <Divider sx={{ my: 1 }} />
         
         {openCat && categories.map(category => (
-        <ListItemButton key={category.id} >
+          <Link href={`/products/${category.name}`}>
+          <ListItemButton key={category.id} >
           <ListItemIcon>
             <AssignmentIcon />
           </ListItemIcon>
           <ListItemText primary={category.name} />
         </ListItemButton>
+           </Link>
+        
       ))}
         </div>
     );

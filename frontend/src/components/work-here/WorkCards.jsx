@@ -24,7 +24,7 @@ export default function WorkCards() {
       {/* Hero unit */}
       <Box
         sx={{
-          bgcolor: 'background.paper',
+          bgcolor: '#8BC34A',
           pt: 8,
           pb: 6,
         }}
@@ -46,7 +46,7 @@ export default function WorkCards() {
           </Typography>
         </Container>
       </Box>
-      <Container sx={{ py: 8 }} maxWidth="md">
+      <Container sx={{ py: 8, backgroundColor: '#8BC34A'}} maxWidth="md">
         {/* End hero unit */}
         <Grid container spacing={4}>
           {cards.map((card) => (
@@ -62,7 +62,7 @@ export default function WorkCards() {
                   }}
                   image={`https://source.unsplash.com/random?${card.keyword}`}
                 />
-                <CardContent sx={{ flexGrow: 1 }}>
+                <CardContent sx={{ flexGrow: 1, backgroundColor: '#4CAF50', textTransform: 'uppercase'}}>
                   <Typography gutterBottom variant="h5" component="h2" align='center'>
                     {card.title}
                   </Typography>

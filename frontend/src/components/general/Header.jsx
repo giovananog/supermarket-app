@@ -38,7 +38,7 @@ function Header(props) {
   };
 
   return (
-    <AppBar position="static" style={{backgroundColor: 'black'}}>
+    <AppBar position="static" style={{backgroundColor: '#388E3C', color:'#CCCCCC'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -60,7 +60,7 @@ function Header(props) {
             SUPERMARKET
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none', color:'#CCCCCC'} }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -86,7 +86,7 @@ function Header(props) {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: 'block', md: 'none'},
               }}
             >
               {pages.map((page) => (
@@ -96,7 +96,7 @@ function Header(props) {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1}} />
           <Typography
             variant="h5"
             noWrap
@@ -104,7 +104,7 @@ function Header(props) {
             href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
-              display: { xs: 'flex', md: 'none' },
+              display: { xs: 'flex', md: 'none', color:'#CCCCCC'},
               flexGrow: 1,
               fontFamily: 'monospace',
               fontWeight: 700,
@@ -121,7 +121,7 @@ function Header(props) {
                 <Button
                   key={page}
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: 'white', display: 'block' }}
+                  sx={{ my: 2, color:'#CCCCCC', display: 'block' }}
                 >
                   {page}
                 </Button>
@@ -164,7 +164,7 @@ function Header(props) {
             <Button
                 key={'Login'}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: '#ccc', display: 'block' }}
               >
                 {"Login"}
                 

@@ -15,6 +15,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ListOptions from './ListOptions';
 import Header from '../general/Header';
 import ShoWProducts from './ShowProducts';
+import { useParams } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -66,6 +67,8 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 const defaultTheme = createTheme();
 
 export default function Products() {
+  const { categories } = useParams();
+
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -79,12 +82,13 @@ export default function Products() {
         <AppBar position="absolute" style={{marginTop: '4%'}} open={open}>
           <Toolbar
             sx={{
-              pr: '24px', // keep right padding when drawer closed
+              pr: '24px', 
+              bgcolor: '#FFEB3B'
             }}
           >
             <IconButton
               edge="start"
-              color="inherit"
+              color="black"
               aria-label="open drawer"
               onClick={toggleDrawer}
               sx={{
@@ -104,6 +108,7 @@ export default function Products() {
               alignItems: 'center',
               justifyContent: 'flex-end',
               px: [1],
+              bgcolor: '#FBC02D'
             }}
           >
             <IconButton onClick={toggleDrawer}>
@@ -111,17 +116,14 @@ export default function Products() {
             </IconButton>
           </Toolbar>
           <Divider />
-          <List component="nav">
+          <List component="nav" >
             <ListOptions />
           </List>
         </Drawer>
         <Box
           component="main"
           sx={{
-            backgroundColor: (theme) =>
-              theme.palette.mode === 'light'
-                ? theme.palette.grey[100]
-                : theme.palette.grey[900],
+            backgroundColor: '#70c370',
             flexGrow: 1,
             height: '100vh',
             overflow: 'auto',
@@ -131,7 +133,7 @@ export default function Products() {
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
               
-              <ShoWProducts />
+              <ShoWProducts cat={categories}/>
               
             </Grid>
           </Container>

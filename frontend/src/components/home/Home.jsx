@@ -5,6 +5,7 @@ import MainImage from "./MainImage";
 import Container from '@mui/material/Container';
 import MoreAbout from "./MoreAbout";
 import ProductsHome from "./ProductsHome";
+import { Link } from "@mui/material";
 
 function Home() {
 
@@ -17,14 +18,19 @@ function Home() {
   };
 
   return (
-    <div className="home-div">
+    <div className="home-div" style={{backgroundColor: '#8BC34A'}}>
       <Header />
       <Container maxWidth="lg">
 
       <main>
           <br />
           <MainImage post={mainFeaturedPost} />
+          <Link href="products" style={{textDecoration: 'none'}}>
           <ProductsHome />
+          </Link>
+          <br />
+          <br />
+
           <MoreAbout />
       </main>
       </Container>

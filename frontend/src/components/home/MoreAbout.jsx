@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Link } from '@mui/material';
 
 const cards = [
   { id: 1, title: 'About', keyword: 'about' },
@@ -24,7 +25,7 @@ export default function MoreAbout() {
       {/* Hero unit */}
       <Box
         sx={{
-          bgcolor: 'background.paper',
+          bgcolor: '#8BC34A',
           pt: 8,
           pb: 6,
         }}
@@ -36,6 +37,7 @@ export default function MoreAbout() {
             align="center"
             color="text.primary"
             gutterBottom
+            style={{backgroundColor: '#8BC34A'}}
           >
             More About Us
           </Typography>
@@ -62,11 +64,13 @@ export default function MoreAbout() {
                   }}
                   image={`https://source.unsplash.com/random?${card.keyword}`}
                 />
-                <CardContent sx={{ flexGrow: 1 }}>
+            <Link href={card.title} style={{textDecoration: 'none', color: 'black'}}>
+                <CardContent sx={{ flexGrow: 1, backgroundColor: '#388E3C', textTransform: 'uppercase'}}>
                   <Typography gutterBottom variant="h5" component="h2" align='center'>
                     {card.title}
                   </Typography>
                 </CardContent>
+            </Link>
               </Card>
             </Grid>
           ))}

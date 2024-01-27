@@ -11,7 +11,7 @@ function SideBar(props) {
 
   return (
     <Grid item xs={12} md={4}>
-      <Paper elevation={0} sx={{ p: 2, bgcolor: 'grey.200' }}>
+      <Paper elevation={0} sx={{ p: 2, bgcolor: '#43ab43' }}>
         <Typography variant="h6" gutterBottom>
           {title}
         </Typography>
@@ -21,7 +21,7 @@ function SideBar(props) {
         Archives
       </Typography>
       {archives.map((archive) => (
-        <Link display="block" variant="body1" href={archive.url} key={archive.title}>
+        <Link display="block" variant="body1" href={archive.url} key={archive.title} style={{color: '#bfb'}}>
           {archive.title}
         </Link>
       ))}
@@ -34,7 +34,7 @@ function SideBar(props) {
           variant="body1"
           href="#"
           key={network.name}
-          sx={{ mb: 0.5 }}
+          sx={{ mb: 0.5, color: '#bfb' }}
         >
           <Stack direction="row" spacing={1} alignItems="center">
             <network.icon />
