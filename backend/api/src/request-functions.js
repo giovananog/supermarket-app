@@ -40,3 +40,13 @@ export async function getPurchasesFromUser (name) {
       throw error; 
     }
 };
+
+export async function validateLogin (email, password) {
+  try {
+    const result = await db.query("SELECT * FROM users WHERE email = $1 AND password = $2; ", [email, password]);
+    return result.rows.length > 0;
+  } catch (error) {
+    console.error('Error', error);
+    throw error; 
+  }
+};

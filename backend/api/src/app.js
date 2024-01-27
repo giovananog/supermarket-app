@@ -1,9 +1,11 @@
 import express from "express";
-import { getAllCategories, getAllProducts, getProductsFromCategory, getPurchasesFromUser } from "./request-functions.js";
+import { getAllCategories, getAllProducts, getProductsFromCategory, getPurchasesFromUser, validateLogin } from "./request-functions.js";
 import cors from 'cors'
+import bodyParser from "body-parser";
 
 const app = express();
-app.use(cors())
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
 const port = 5000;
 
 
@@ -28,13 +30,22 @@ app.get('/products/:category', async (req, res) => {
 
 app.get('/purchases/:user', async (req, res) => {   
     var user = req.params.user;
-    console.log(user);
     const result = await getPurchasesFromUser(user);
     res.json(result.rows);
 });
 
+app.post('/validate', async (req, res) => {
+    const email = req.body['email'];
+    const password = req.body.password;
 
-
+    var response = await validateLogin(email, password);
+  
+    if (response) {
+      res.json({ success: true, message: 'Usuário válido' });
+    } else {
+      res.json({ success: false, message: 'Usuário inválido' });
+    }
+});
 
 
 // checks server port
