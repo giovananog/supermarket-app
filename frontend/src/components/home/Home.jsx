@@ -18,7 +18,7 @@ function Home(props) {
   };
 
   return (
-    <div className="home-div" style={{backgroundColor: '#8BC34A'}}>
+    <div className="home-div" style={{backgroundColor: '#eee8e8'}}>
       <Header islogged={props.islogged}/>
       <Container maxWidth="lg">
 
@@ -26,7 +26,7 @@ function Home(props) {
           <br />
           <MainImage post={mainFeaturedPost} />
           <Link href="products" style={{textDecoration: 'none'}}>
-          <ProductsHome />
+              <ProductsHome />
           </Link>
           <br />
           <br />

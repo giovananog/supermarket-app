@@ -26,7 +26,7 @@ export default function ProductsHome() {
       <CssBaseline />
       <Box
         sx={{
-          bgcolor: '#FBC02D',
+          bgcolor: '#cacaca',
           pt: 10,
           pb: 1,
         }}
@@ -37,15 +37,15 @@ export default function ProductsHome() {
             variant="h2"
             align="center"
             textTransform={'uppercase'}
-            color="#FFEB3B"
-            style={{backgroundColor: '#FBC02D'}}
+            color="white"
+            style={{backgroundColor: '#24c0eb'}}
             gutterBottom
           >
             Buy Now!
           </Typography>
         </Container>
       </Box>
-      <Container sx={{ py: 8, backgroundColor: '#FFEB3B'}} maxWidth="lg">
+      <Container sx={{ py: 8, backgroundColor: '#5cceee'}} maxWidth="lg">
         <Grid container spacing={4}>
           {products.map((product) => (
             <Grid item key={product.id} xs={6} sm={6} md={3}>
@@ -59,7 +59,7 @@ export default function ProductsHome() {
                   }}
                   image={`https://source.unsplash.com/random?food,${product.name}`}
                 />
-                <CardContent sx={{ flexGrow: 1,  backgroundColor: '#FBC02D'}}>
+                <CardContent sx={{ flexGrow: 1,  backgroundColor: '#cacaca'}}>
                   <Typography gutterBottom variant="h5" component="h2" align='center'>
                     {product.name}
                   </Typography>

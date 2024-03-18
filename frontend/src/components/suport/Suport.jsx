@@ -7,7 +7,7 @@ import Email from "./Email";
 function Suport() {
 
     return (
-        <div style={{backgroundColor: '#8BC34A'}}>
+        <div style={{backgroundColor: '#f1ebeb'}}>
             <Header />
             <Email />
             <Footer />

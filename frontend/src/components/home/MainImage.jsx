@@ -13,7 +13,7 @@ function MainImage(props) {
     <Paper
       sx={{
         position: 'relative',
-        backgroundColor: 'grey.800',
+        backgroundColor: '#24c0eb',
         color: '#fff',
         mb: 4,
         backgroundSize: 'cover',

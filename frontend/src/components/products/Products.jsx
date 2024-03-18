@@ -83,7 +83,7 @@ export default function Products() {
           <Toolbar
             sx={{
               pr: '24px', 
-              bgcolor: '#FFEB3B'
+              bgcolor: '#5cceee'
             }}
           >
             <IconButton
@@ -108,7 +108,7 @@ export default function Products() {
               alignItems: 'center',
               justifyContent: 'flex-end',
               px: [1],
-              bgcolor: '#FBC02D'
+              bgcolor: '#5cceee'
             }}
           >
             <IconButton onClick={toggleDrawer}>
@@ -123,7 +123,7 @@ export default function Products() {
         <Box
           component="main"
           sx={{
-            backgroundColor: '#70c370',
+            backgroundColor: '#f1ebeb',
             flexGrow: 1,
             height: '100vh',
             overflow: 'auto',

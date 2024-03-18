@@ -15,7 +15,6 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import api from '../../api';
 
 
-// TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
 export default function ShoWProducts(props) {
@@ -55,14 +54,14 @@ export default function ShoWProducts(props) {
                   }}
                   image={`https://source.unsplash.com/random?food,${product.name}`}
                 />
-                <CardContent sx={{ flexGrow: 1, backgroundColor: '#8BC34A'}}>
+                <CardContent sx={{ flexGrow: 1, backgroundColor: '#5cceee'}}>
                   <Typography gutterBottom variant="h5" component="h2" align='center'>
                     {product.name}
                   </Typography>
                   <Typography align='center'>
                     ${product.price}
                   </Typography>
-                  <CardActions style={{backgroundColor: '#43ab43'}}>
+                  <CardActions style={{backgroundColor: '#cacaca'}}>
                     <IconButton color="#8BC34A" aria-label="add to shopping cart" align='center' style={{width: '100%', height: '10px'}} size='large'>
                         <AddShoppingCartIcon />
                     </IconButton>

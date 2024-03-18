@@ -13,7 +13,7 @@ function FeaturedPost(props) {
   return (
     <Grid item xs={12} md={6}>
       <CardActionArea component="a" href="#">
-        <Card sx={{ display: 'flex', backgroundColor: '#43ab43' }}>
+        <Card sx={{ display: 'flex', backgroundColor: '#cacaca' }}>
           <CardContent sx={{ flex: 1 }}>
             <Typography component="h2" variant="h5">
               {post.title}

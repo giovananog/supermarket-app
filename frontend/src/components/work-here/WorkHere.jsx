@@ -8,13 +8,13 @@ import { Container } from "@mui/material";
 function WorkHere() {
 
     return (
-        <div style={{backgroundColor: '#8BC34A'}}>
+        <div style={{backgroundColor: '#f1ebeb'}}>
             <Header />
             <WorkCards />
             <br />
             <br />
             <br />
-            <Container component="main" maxWidth="sm" style={{backgroundColor: '#4CAF50'}}>
+            <Container component="main" maxWidth="sm" style={{backgroundColor: '#f1ebeb'}}>
                 <WorkForm />
             </Container>
             <Footer />

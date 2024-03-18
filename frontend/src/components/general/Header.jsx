@@ -11,7 +11,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import StorefrontIcon from '@mui/icons-material/Storefront';
 import Link from '@mui/material/Link';
 
 
@@ -38,10 +38,10 @@ function Header(props) {
   };
 
   return (
-    <AppBar position="static" style={{backgroundColor: '#388E3C', color:'#CCCCCC'}}>
+    <AppBar position="static" style={{backgroundColor: '#24c0eb', color:'#CCCCCC'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <StorefrontIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -96,7 +96,7 @@ function Header(props) {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1}} />
+          <StorefrontIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1}} />
           <Typography
             variant="h5"
             noWrap
