@@ -25,7 +25,9 @@ function Main(props) {
       <Divider />
       {posts.map((post) => (
         <Markdown className="markdown" key={post.substring(0, 40)}>
-          {post}
+          Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.
+          Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.
+          Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.
         </Markdown>
       ))}
     </Grid>
